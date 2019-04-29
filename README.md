@@ -30,6 +30,22 @@ Settings:
 --env HOST_IP        192.168.1.113
 ```
 
+You should get a shell; try typing:
+```
+pxh> commander takeoff
+```
+
+Currently, I'm getting this RC FAILSAFE:
+```
+INFO  [commander] Takeoff detected
+WARN  [commander] Failsafe enabled: no datalink
+INFO  [navigator] RTL HOME activated
+INFO  [navigator] RTL: climb to 25 m (11 m above home)
+INFO  [navigator] RTL: return at 25 m (11 m above home)
+INFO  [navigator] RTL: land at home
+```
+
+
 Forwarding X11
 --------------
 
