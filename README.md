@@ -1,5 +1,34 @@
 
+PX4 Software In-the-Loop Simulator
+==================================
 
+The purpose is to have a docker-isolated PX4 SITL via gazebo.
+
+Usage
+-----
+
+To build:
+
+```
+docker build --rm --tag lumenier .
+```
+
+To run:
+
+```
+docker run --rm -it --env HOST_IP 192.168.1.113 lumenier
+```
+
+...which will send MAVLink to UDP 192.168.1.113 at port 14550
+
+
+Settings:
+```
+--env PX4_HOME_LAT   42.3898
+--env PX4_HOME_LON   -71.1476
+--env PX4_HOME_ALT   14.2
+--env HOST_IP        192.168.1.113
+```
 
 Forwarding X11
 --------------
