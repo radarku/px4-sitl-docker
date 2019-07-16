@@ -4,22 +4,17 @@ PX4 Software In-the-Loop Simulator
 
 The purpose is to have a docker-isolated PX4 SITL via gazebo.
 
-Building and Running
---------------------
 
-To build:
+DockerHub
+---------
 
-```
-docker build --rm --tag px4-sitl .
-```
-
-To run:
+To run from the DockerHub image:
 
 ```
-docker run --rm -it -p5760:5760 --env HOST_IP=192.168.1.122 px4-sitl
+docker run --rm -it -p5760:5760 radarku/px4-sitl
 ```
 
-...which starts a MAVLink TCP socket listening at port 5760 and pushes a UDP video stream to HOST_IP:5600
+...which starts a MAVLink TCP socket listening at port 5760
 
 Settings
 --------
@@ -55,5 +50,24 @@ INFO  [navigator] RTL: land at home
 Go into your GCS and update the parameter `NAV_RCL_ACT` (Set RC loss failsafe mode) to `0` (Disabled) as explained here:
 
 https://docs.px4.io/en/advanced_config/parameter_reference.html#NAV_RCL_ACT
+
+
+
+Building and Running Manually
+-----------------------------
+
+To build:
+
+```
+docker build --rm --tag px4-sitl .
+```
+
+To run:
+
+```
+docker run --rm -it -p5760:5760 px4-sitl
+```
+
+...which starts a MAVLink TCP socket listening at port 5760
 
 
