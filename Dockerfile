@@ -41,13 +41,13 @@ RUN apt-get install $(apt-cache --names-only search ^gstreamer1.0-* | awk '{ pri
 
 # Now start build instructions from https://dev.px4.io/en/setup/building_px4.html
 # just build; don't run; https://github.com/PX4/Firmware/issues/3961
-RUN DONT_RUN=1 make px4_sitl_default gazebo
+RUN DONT_RUN=1 make px4_sitl_default gazebo && DONT_RUN=1 make px4_sitl_default gazebo
 
 # UDP 14550 is what the sim exposes by default
 #https://dev.px4.io/en/simulation/
 
 # Proxy MAVLink
-RUN apt-get install -y python3-dev python-opencv python-wxgtk3.0 python3-pip python3-matplotlib python-pygame python3-lxml python3-yaml
+RUN apt-get update && apt-get install -y python3-dev python-opencv python-wxgtk3.0 python3-pip python3-matplotlib python-pygame python3-lxml python3-yaml
 RUN pip3 install --upgrade pip
 RUN pip3 install MAVProxy
 
